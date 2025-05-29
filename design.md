@@ -1,0 +1,1 @@
+I want a screen with a large paragraph-sized text input. Below it, there should be a dropdown selector to convert to Title Case, Sentence case, camelCase, and Pascal Case. Next to the dropdown, there should be a convert button that converts the given text to the selected case and displays it in a paragraph-sized textbox below the dropdown and button.
