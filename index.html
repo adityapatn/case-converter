@@ -49,6 +49,7 @@
       <option value="sentence">Sentence case</option>
       <option value="camel">camelCase</option>
       <option value="pascal">PascalCase</option>
+      <option value="snake">snake_case</option>
     </select>
     <button id="convertBtn">Convert</button>
   </div>
@@ -87,19 +88,25 @@
         })
         .join('');
     }
+    function toSnakeCase(str) {
+      const words = str.match(/\w+/g) || [];
+      return words.map(w => w.toLowerCase()).join('_');
+    }
 
     // wire up conversion
     document.getElementById('convertBtn').addEventListener('click', () => {
       const text = document.getElementById('inputText').value;
       const mode = document.getElementById('caseSelect').value;
       let result = '';
-      if (mode === 'title')      result = toTitleCase(text);
+      if (mode === 'title')         result = toTitleCase(text);
       else if (mode === 'sentence') result = toSentenceCase(text);
-      else if (mode === 'camel')   result = toCamelCase(text);
-      else if (mode === 'pascal')  result = toPascalCase(text);
+      else if (mode === 'camel')    result = toCamelCase(text);
+      else if (mode === 'pascal')   result = toPascalCase(text);
+      else if (mode === 'snake')    result = toSnakeCase(text);
       document.getElementById('outputText').value = result;
     });
   </script>
+
   <div class="footer">by Aditya Patnaik</div>
 </body>
 </html>
